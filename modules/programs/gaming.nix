@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   flake.nixosModules.gaming = {
     programs.steam.enable = true;
@@ -19,7 +19,7 @@
   };
 
   flake.homeModules.gaming =
-    { config, pkgs, ... }:
+    { pkgs, ... }:
     {
       home.packages = with pkgs; [
         gamescope
