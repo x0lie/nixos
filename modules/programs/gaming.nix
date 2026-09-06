@@ -25,6 +25,7 @@
         gamescope
         mangohud
         protonplus
+        xrandr
       ];
 
       xdg.configFile."MangoHud/MangoHud.conf".text = ''
