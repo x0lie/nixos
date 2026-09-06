@@ -8,6 +8,7 @@ in
     modules = [
       ../../configuration.nix
       self.nixosModules.hyprland
+      self.nixosModules.gaming
       inputs.home-manager.nixosModules.home-manager
       {
         environment.systemPackages = [ inputs.home-manager.packages.${system}.home-manager ];
@@ -18,6 +19,7 @@ in
           imports = [
             ../../home.nix
             self.homeModules.hyprland
+            self.homeModules.gaming
             inputs.nix-index-database.homeModules.default
           ];
         };

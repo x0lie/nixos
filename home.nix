@@ -16,7 +16,6 @@ in
     dnsutils
     efibootmgr
     fastfetch
-    gamescope
     gh
     git
     grimblast
@@ -24,13 +23,11 @@ in
     jq
     kitty
     kubectl
-    mangohud
     nemo
     neovim
     nixd
     nixfmt
     openbao
-    protonplus
     spotify
     talosctl
     tree
@@ -40,18 +37,6 @@ in
     wireguard-tools
     wofi
   ];
-
-  xdg.configFile."MangoHud/MangoHud.conf".text = ''
-    gpu_stats
-    cpu_stats
-    fps
-    frametime
-    # frame_timing_detailed
-    dynamic_frame_timing
-    fps_metrics=avg,0.01,0.001
-    toggle_logging=Shift_L+F2
-    output_folder=/home/x0lie/mangologs
-  '';
 
   programs.vscodium = {
     enable = true;

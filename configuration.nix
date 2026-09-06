@@ -146,20 +146,5 @@
 
   programs.firefox.enable = true;
   programs.fish.enable = true;
-  programs.gamemode = {
-    enable = true;
-    settings = {
-      cpu = {
-        pin_cores = "yes";
-        park_cores = "yes";
-      };
-      gpu = {
-        apply_gpu_optimisations = "accept-responsibility";
-        dpu_device = 0;
-        nv_powermizer_mode = 1;
-      };
-    };
-  };
   programs.mtr.enable = true;
-  programs.steam.enable = true;
 }
