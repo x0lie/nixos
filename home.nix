@@ -35,7 +35,6 @@ in
     vlc
     wget
     wireguard-tools
-    wofi
   ];
 
   programs.vscodium = {

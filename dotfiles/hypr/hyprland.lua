@@ -35,7 +35,6 @@ hl.monitor({
 
 local terminal = "kitty"
 local fileManager = "nemo"
-local menu = "wofi --show drun"
 
 ---------------
 -- AUTOSTART --
@@ -197,7 +196,7 @@ hl.bind("SUPER + K", hl.dsp.focus({ direction = "down" }))
 
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + U", hl.dsp.exec_cmd("nemo"))
-hl.bind("SUPER + O", hl.dsp.exec_cmd("wofi --show drun"))
+hl.bind("SUPER + O", hl.dsp.exec_cmd("dms ipc call spotlight toggle"))
 hl.bind("Print", hl.dsp.exec_cmd("grimblast --notify copy area"))
 hl.bind("SUPER + G", hl.dsp.exec_cmd("~/.config/hypr/scripts/gamemode.sh"))
 
