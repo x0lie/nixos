@@ -28,6 +28,6 @@
       };
 
       home.file.".config/hypr/hyprland.lua".source =
-        config.lib.file.mkOutOfStoreSymlink "${configDir}/configs/hypr/hyprland.lua";
+        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr/hyprland.lua";
     };
 }

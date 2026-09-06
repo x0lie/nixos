@@ -100,10 +100,10 @@ in
   };
   programs.nix-index-database.comma.enable = true;
 
-  home.file.".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/configs/kitty";
+  home.file.".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/kitty";
 
   home.file."Projects/.editorconfig".source =
-    config.lib.file.mkOutOfStoreSymlink "${configDir}/configs/editorconfig";
+    config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/editorconfig";
 
   xdg.configFile."wireplumber/wireplumber.conf.d/51-prefer-minifuse-mic.conf".text = ''
     monitor.alsa.rules = [
