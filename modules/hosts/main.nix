@@ -7,6 +7,7 @@ in
     inherit system;
     modules = [
       ../../configuration.nix
+      self.nixosModules.nvidia
       self.nixosModules.hyprland
       self.nixosModules.gaming
       inputs.home-manager.nixosModules.home-manager

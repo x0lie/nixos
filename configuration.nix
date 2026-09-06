@@ -39,10 +39,7 @@
   boot.kernel.sysctl."net.core.default_qdisc" = "fq";
   boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
 
-  boot.kernelParams = [
-    "preempt=full"
-    "nvidia_drm.fbdev=1"
-  ];
+  boot.kernelParams = [ "preempt=full" ];
 
   services.scx = {
     enable = true;
@@ -60,16 +57,6 @@
   #################
 
   hardware.graphics.enable = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  hardware.nvidia.nvidiaPersistenced = true;
-
   virtualisation.docker.enable = true;
 
   #################
