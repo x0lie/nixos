@@ -73,13 +73,6 @@ in
     hyprcursor.enable = true;
   };
 
-  programs.dank-material-shell = {
-    enable = true;
-    systemd.enable = true;
-    enableSystemMonitoring = true;
-    enableDynamicTheming = true;
-  };
-
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -108,9 +101,6 @@ in
   programs.nix-index-database.comma.enable = true;
 
   home.file.".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/configs/kitty";
-
-  home.file.".config/hypr/hyprland.lua".source =
-    config.lib.file.mkOutOfStoreSymlink "${configDir}/configs/hypr/hyprland.lua";
 
   home.file."Projects/.editorconfig".source =
     config.lib.file.mkOutOfStoreSymlink "${configDir}/configs/editorconfig";

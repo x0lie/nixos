@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 let
   system = "x86_64-linux";
 in
@@ -7,6 +7,7 @@ in
     inherit system;
     modules = [
       ../../configuration.nix
+      self.nixosModules.hyprland
       inputs.home-manager.nixosModules.home-manager
       {
         environment.systemPackages = [ inputs.home-manager.packages.${system}.home-manager ];
@@ -16,7 +17,7 @@ in
         home-manager.users.x0lie = {
           imports = [
             ../../home.nix
-            inputs.dms.homeModules.dank-material-shell
+            self.homeModules.hyprland
             inputs.nix-index-database.homeModules.default
           ];
         };

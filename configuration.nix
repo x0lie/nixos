@@ -143,10 +143,6 @@
     enable = true;
     pulse.enable = true;
   };
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor.name = "hyprland";
-  };
 
   programs.firefox.enable = true;
   programs.fish.enable = true;
@@ -163,11 +159,6 @@
         nv_powermizer_mode = 1;
       };
     };
-  };
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
   };
   programs.mtr.enable = true;
   programs.steam.enable = true;
