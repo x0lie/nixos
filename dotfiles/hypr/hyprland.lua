@@ -77,7 +77,14 @@ hl.config({
 
 hl.config({
     render = {
-        direct_scanout = 1,
+        direct_scanout = 2,
+    },
+})
+
+hl.config({
+    cursor = {
+        --required for direct_scanout:
+        no_hardware_cursors = 0,
     },
 })
 
