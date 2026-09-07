@@ -30,9 +30,40 @@
     "tcp_bbr"
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 2;
+
+  boot.loader.limine = {
+    enable = true;
+    maxGenerations = 8;
+
+    extraEntries = ''
+      /Windows
+          protocol: efi
+          path: guid(8f4ac44a-07fa-4b73-8e1f-649307fe4d1a):/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+
+    style = {
+      # Catppuccin Mocha
+      wallpapers = [ ./assets/limine-wallpaper.png ];
+      wallpaperStyle = "stretched";
+      backdrop = "1E1E2E"; # base
+
+      interface = {
+        branding = "main";
+        brandingColor = "CBA6F7"; # mauve
+        helpColor = "A6E3A1"; # green
+        helpColorBright = "94E2D5"; # teal
+      };
+
+      graphicalTerminal = {
+        foreground = "CDD6F4"; # text
+        brightForeground = "CDD6F4"; # text
+        palette = "45475A;F38BA8;A6E3A1;F9E2AF;89B4FA;F5C2E7;94E2D5;BAC2DE";
+        brightPalette = "585B70;F38BA8;A6E3A1;F9E2AF;89B4FA;F5C2E7;94E2D5;A6ADC8";
+      };
+    };
+  };
 
   boot.kernel.sysctl."net.core.default_qdisc" = "fq";
   boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
