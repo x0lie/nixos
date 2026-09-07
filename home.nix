@@ -65,7 +65,7 @@ in
       fastfetch
     '';
     shellAliases = {
-      ls = "ls -al";
+      ls = "ls -al --color";
       nrs = "sudo nixos-rebuild switch --flake ~/Projects/nixos";
       d = "docker";
       k = "kubecolor";
