@@ -2,7 +2,7 @@
 linux_display_server wayland
 
 # Full transparency: 0.0 = completely clear bg (shows desktop fully)
-background_opacity 0.9
+background_opacity 1
 
 # Blur the transparent bg (1-64 radius; 10 = subtle fog) – reduced from 64 for a cleaner look
 # background_blur 64
@@ -49,13 +49,13 @@ background_opacity 0.9
 # color15 #ffffff
 
 # Allow dynamic opacity changes (e.g., dim on unfocus)
-dynamic_background_opacity yes
+dynamic_background_opacity no #yes
 
 # fix washed out text?
 text_fg_override_threshold 0
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# GitHub Dark
 include current-theme.conf
 # END_KITTY_THEME

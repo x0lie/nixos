@@ -65,15 +65,15 @@ end)
 
 hl.config({
     general = {
-        gaps_in = 2,
-        gaps_out = 4,
+        gaps_in = 5,
+        gaps_out = 10,
         border_size = 3,
         resize_on_border = false,
         -- allow_tearing = true,
         layout = "dwindle",
         col = {
-            active_border = "rgba(0aa5adaa)",
-            inactive_border = "rgba(59595980)",
+            active_border = "rgba(CBA6F7aa)",
+            inactive_border = "rgba(313244ff)",
         },
     },
 })
@@ -93,10 +93,10 @@ hl.config({
 
 hl.config({
     decoration = {
-        rounding = 10,
+        rounding = 20,
         rounding_power = 2,
         active_opacity = 1,
-        inactive_opacity = 1,
+        inactive_opacity = 0.95,
         shadow = {
             enabled = true,
             range = 4,
