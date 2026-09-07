@@ -24,7 +24,7 @@
   # Boot / Kernel #
   #################
 
-  boot.kernelPackages = pkgs.linuxPackages_7_1;
+  boot.kernelPackages = pkgs.linuxPackages_7_2;
   boot.kernelModules = [
     "ntsync"
     "tcp_bbr"
