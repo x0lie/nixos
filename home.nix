@@ -22,6 +22,7 @@ in
     hyprpicker
     jq
     kitty
+    kubecolor
     kubectl
     nemo
     neovim
@@ -67,7 +68,7 @@ in
       ls = "ls -al";
       nrs = "sudo nixos-rebuild switch --flake ~/Projects/nixos";
       d = "docker";
-      k = "kubectl";
+      k = "kubecolor";
       t = "talosctl";
       dcud = "docker compose up -d";
       dcd = "docker compose down";
