@@ -7,6 +7,7 @@ in
     inherit system;
     modules = [
       ../../configuration.nix
+      { networking.hostName = "main"; }
       self.nixosModules.nvidia
       self.nixosModules.hyprland
       self.nixosModules.gaming

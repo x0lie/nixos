@@ -92,7 +92,6 @@
   #  Networking   #
   #################
 
-  networking.hostName = "main";
   networking.firewall.checkReversePath = "loose";
   networking.networkmanager.enable = true;
   services.resolved.enable = true; # [local caching] necessary for full-speed Steam downloads
