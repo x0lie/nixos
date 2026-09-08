@@ -26,6 +26,7 @@ in
     kubectl
     nemo
     neovim
+    nerd-fonts.jetbrains-mono
     nixd
     nixfmt
     openbao
@@ -79,6 +80,11 @@ in
 
   programs.go.enable = true;
 
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;
@@ -90,6 +96,9 @@ in
 
   home.file."Projects/.editorconfig".source =
     config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/editorconfig";
+
+  xdg.configFile."starship.toml".source =
+    config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/starship/starship.toml";
 
   xdg.configFile."wireplumber/wireplumber.conf.d/51-prefer-minifuse-mic.conf".text = ''
     monitor.alsa.rules = [
