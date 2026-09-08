@@ -6,6 +6,7 @@ in
   flake.nixosConfigurations.main = inputs.nixpkgs.lib.nixosSystem {
     inherit system;
     modules = [
+      ../../hardware-configurations/main.nix
       ../../configuration.nix
       { boot.loader.limine.extraEntries = ''
           /Windows
