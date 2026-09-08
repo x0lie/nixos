@@ -25,3 +25,10 @@ hl.monitor({
     position = "-3000x-600",
     scale    = 1,
 })
+
+--Catch-all
+hl.monitor({
+    output   = "",
+    mode     = "preferred",
+    position = "auto",
+})
