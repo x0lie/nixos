@@ -32,6 +32,7 @@ in
     openbao
     spotify
     talosctl
+    tcpdump
     tree
     vesktop
     vlc
