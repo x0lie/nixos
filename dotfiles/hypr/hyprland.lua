@@ -1,33 +1,6 @@
---------------
--- MONITORS --
---------------
-
---Samsung
-hl.monitor({
-    output   = "desc:Samsung Electric Company LC27G7xT H4ZT400384",
-    mode     = "2560x1440@239.96",
-    position = "0x0",
-    scale    = 1,
-    vrr = 1,
-})
-
---Acer
-hl.monitor({
-    output   = "desc:Acer Technologies Acer XB241H #ASMZPaMPfFDd",
-    mode     = "1920x1080@143.98",
-    position = "-1080x-300",
-    scale    = 1,
-    transform = 1,
-    vrr = 1,
-})
-
---LG
-hl.monitor({
-    output   = "desc:LG Electronics LG TV 0x01010101",
-    mode     = "1920x1080@60",
-    position = "-3000x-600",
-    scale    = 1,
-})
+require("monitors")
+require("devices")
+require("config")
 
 -----------------
 -- MY PROGRAMS --
@@ -44,20 +17,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(
         [[xrandr --output "$(hyprctl monitors -j | jq -r '.[] | select(.description=="Samsung Electric Company LC27G7xT H4ZT400384") | .name')" --primary]]
     )
-    hl.exec_cmd("vesktop & brave")
+    hl.exec_cmd("vesktop")
 end)
-
----------------------------
--- ENVIRONMENT VARIABLES --
----------------------------
-
--- Moved to ~/.config/uwsm/{env,env-hyprland}
-
--- HYPRCURSOR_THEME/SIZE now set declaratively via home.pointerCursor in home.nix
-
------------------
--- PERMISSIONS --
------------------
 
 -------------------
 -- LOOK AND FEEL --
@@ -135,49 +96,6 @@ hl.config({
     master = {
         new_status = "master",
     },
-})
-
-hl.config({
-    misc = {
-        force_default_wallpaper = 1,
-        disable_hyprland_logo = true,
-        focus_on_activate = true,
-        mouse_move_enables_dpms = true,
-        key_press_enables_dpms = true,
-    },
-})
-
------------
--- INPUT --
------------
-
-hl.config({
-    input = {
-        kb_layout = "us",
-        follow_mouse = 1,
-        sensitivity = 0,
-        -- -1.0 - 1.0, 0 means no modification.
-        accel_profile = "flat",
-        touchpad = {
-            natural_scroll = false,
-        },
-    },
-})
-
--- hl.config({
---     debug = {
---         overlay = true,
---     },
--- })
-
-hl.device({
-    name = "finalmouse-ultralightx-mouse",
-    sensitivity = -0.1,
-})
-
-hl.device({
-    name = "finalmouse-ultralightx-dongle-mouse",
-    sensitivity = -0.1,
 })
 
 -----------------
