@@ -37,12 +37,6 @@
     enable = true;
     maxGenerations = 8;
 
-    extraEntries = ''
-      /Windows
-          protocol: efi
-          path: guid(8f4ac44a-07fa-4b73-8e1f-649307fe4d1a):/EFI/Microsoft/Boot/bootmgfw.efi
-    '';
-
     style = {
       # Catppuccin Mocha
       wallpapers = [ ./assets/limine-wallpaper.png ];
