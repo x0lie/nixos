@@ -47,13 +47,7 @@
         enableDynamicTheming = true;
       };
 
-      home.file.".config/hypr/hyprland.lua".source =
-        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr/hyprland.lua";
-      home.file.".config/hypr/monitors.lua".source =
-        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr/monitors.lua";
-      home.file.".config/hypr/devices.lua".source =
-        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr/devices.lua";
-      home.file.".config/hypr/config.lua".source =
-        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr/config.lua";
+      home.file.".config/hypr".source =
+        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr";
     };
 }

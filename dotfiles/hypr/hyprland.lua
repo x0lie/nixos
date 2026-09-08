@@ -1,7 +1,3 @@
-require("monitors")
-require("devices")
-require("config")
-
 -----------------
 -- MY PROGRAMS --
 -----------------
@@ -195,7 +191,19 @@ hl.config({
     },
 })
 
+-------------
+-- MODULES --
+-------------
+
+require("monitors")
+require("devices")
+require("config")
+
 -- DMS Include Configs
-require("dms.cursor")
-require("dms.binds")
-require("dms.binds-user")
+-- require("dms.binds")
+-- require("dms.binds-user")
+require("dms.colors")
+-- require("dms.cursor")
+require("dms.layout")
+require("dms.outputs")
+require("dms.windowrules")
