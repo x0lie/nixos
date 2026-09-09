@@ -13,7 +13,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(
         [[xrandr --output "$(hyprctl monitors -j | jq -r '.[] | select(.description=="Samsung Electric Company LC27G7xT H4ZT400384") | .name')" --primary]]
     )
-    hl.exec_cmd("vesktop")
 end)
 
 -------------------
