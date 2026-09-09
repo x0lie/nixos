@@ -144,6 +144,10 @@
   services.accounts-daemon.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
+  security.polkit = {
+    enable = true;
+    enablePkexecWrapper = true;
+  };
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
