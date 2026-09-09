@@ -143,6 +143,7 @@
   };
   services.accounts-daemon.enable = true;
   services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
