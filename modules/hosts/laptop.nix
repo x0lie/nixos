@@ -9,6 +9,7 @@ in
       ../../hardware-configurations/laptop.nix
       ../../configuration.nix
       { networking.hostName = "laptop"; }
+      self.nixosModules.brightness
       self.nixosModules.hyprland
       inputs.home-manager.nixosModules.home-manager
       {
@@ -20,6 +21,7 @@ in
           imports = [
             ../../home.nix
             self.homeModules.hyprland
+            self.homeModules.brightness
             inputs.nix-index-database.homeModules.default
           ];
         };
