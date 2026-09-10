@@ -41,12 +41,33 @@ in
 
   programs.vscodium = {
     enable = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      arrterian.nix-env-selector
-      editorconfig.editorconfig
-      jnoortheen.nix-ide
-      mkhl.direnv
-    ];
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        arrterian.nix-env-selector
+        editorconfig.editorconfig
+        jnoortheen.nix-ide
+        mkhl.direnv
+      ];
+      userSettings = {
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
+        "nix.serverSettings" = {
+          "nixd" = {
+            "nixpkgs" = {
+              "expr" = "import (builtins.getFlake \"${configDir}\").inputs.nixpkgs { }";
+            };
+            "options" = {
+              "nixos" = {
+                "expr" = "(builtins.getFlake \"${configDir}\").nixosConfigurations.main.options";
+              };
+              "home-manager" = {
+                "expr" = "(builtins.getFlake \"${configDir}\").nixosConfigurations.main.options.home-manager.users.type.getSubOptions []";
+              };
+            };
+          };
+        };
+      };
+    };
   };
 
   home.pointerCursor = {
