@@ -17,6 +17,7 @@ in
       self.nixosModules.nvidia
       self.nixosModules.hyprland
       self.nixosModules.gaming
+      self.nixosModules.brave
       inputs.home-manager.nixosModules.home-manager
       {
         environment.systemPackages = [ inputs.home-manager.packages.${system}.home-manager ];
@@ -28,6 +29,7 @@ in
             ../../home.nix
             self.homeModules.hyprland
             self.homeModules.gaming
+            self.homeModules.brave
             inputs.nix-index-database.homeModules.default
           ];
         };

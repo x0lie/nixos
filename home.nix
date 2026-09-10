@@ -10,7 +10,6 @@ in
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    brave-origin
     claude-code
     direnv
     dnsutils

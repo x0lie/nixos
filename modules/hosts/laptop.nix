@@ -11,6 +11,7 @@ in
       { networking.hostName = "laptop"; }
       self.nixosModules.brightness
       self.nixosModules.hyprland
+      self.nixosModules.brave
       inputs.home-manager.nixosModules.home-manager
       {
         environment.systemPackages = [ inputs.home-manager.packages.${system}.home-manager ];
@@ -22,6 +23,7 @@ in
             ../../home.nix
             self.homeModules.hyprland
             self.homeModules.brightness
+            self.homeModules.brave
             inputs.nix-index-database.homeModules.default
           ];
         };
