@@ -10,6 +10,7 @@ in
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
+    adw-gtk3
     claude-code
     direnv
     dnsutils
@@ -29,6 +30,7 @@ in
     nixd
     nixfmt
     openbao
+    qtengine
     spotify
     talosctl
     tcpdump

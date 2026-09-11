@@ -9,3 +9,6 @@ hl.config({
         key_press_enables_dpms = true,
     },
 })
+
+hl.env("QT_QPA_PLATFORMTHEME", "qtengine")
+hl.env("QT_PLUGIN_PATH", "/etc/profiles/per-user/x0lie/lib/qt-6/plugins")
