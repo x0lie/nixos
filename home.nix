@@ -39,6 +39,7 @@ in
     vlc
     wget
     wireguard-tools
+    wpsoffice
   ];
 
   programs.vscodium = {
