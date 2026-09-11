@@ -16,6 +16,7 @@ in
       { networking.hostName = "main"; }
       self.nixosModules.nvidia
       self.nixosModules.hyprland
+      self.nixosModules.plasma
       self.nixosModules.gaming
       self.nixosModules.brave
       inputs.home-manager.nixosModules.home-manager
@@ -28,6 +29,7 @@ in
           imports = [
             ../../home.nix
             self.homeModules.hyprland
+            self.homeModules.plasma
             self.homeModules.gaming
             self.homeModules.brave
             inputs.nix-index-database.homeModules.default

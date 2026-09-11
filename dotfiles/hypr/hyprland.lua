@@ -15,6 +15,10 @@ hl.on("hyprland.start", function()
     )
 end)
 
+hl.on("hyprland.start", function()
+    hl.exec_cmd("dms run --session")
+end)
+
 -------------------
 -- LOOK AND FEEL --
 -------------------
