@@ -45,13 +45,6 @@ hl.config({
 })
 
 hl.config({
-    cursor = {
-        --required for direct_scanout:
-        no_hardware_cursors = 0,
-    },
-})
-
-hl.config({
     decoration = {
         rounding = 20,
         rounding_power = 2,
