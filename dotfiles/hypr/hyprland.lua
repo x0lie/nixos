@@ -194,6 +194,12 @@ hl.config({
     },
 })
 
+hl.window_rule({
+  name = "steam-games",
+  match = { class = "steam_app_.*" },
+  content = "game",
+})
+
 -------------
 -- MODULES --
 -------------
