@@ -99,6 +99,12 @@ hl.window_rule({
   content = "game",
 })
 
+hl.window_rule({
+  name = "bitwarden-float",
+  match = { class = "brave-nngceckbapebfimnlniiiahkandclblb-Default" },
+  float = true
+})
+
 -------------
 -- MODULES --
 -------------
