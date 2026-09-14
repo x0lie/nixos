@@ -24,6 +24,7 @@
       home.packages = with pkgs; [
         gamescope
         mangohud
+        prismlauncher
         protonplus
         xrandr
       ];
