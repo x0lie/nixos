@@ -38,4 +38,7 @@ hl.config({
   cursor = {
     default_monitor = "desc:Samsung Electric Company LC27G7xT H4ZT400384",
   },
+  opengl = {
+    nvidia_anti_flicker = false,
+  }
 })
