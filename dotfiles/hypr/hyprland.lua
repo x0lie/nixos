@@ -57,7 +57,15 @@ hl.animation({
   leaf    = "windows",
   enabled = true,
   speed   = 4,
-  bezier  = "default"
+  bezier  = "default",
+})
+
+hl.animation({
+  leaf    = "workspaces",
+  enabled = true,
+  speed = 4,
+  spring = "default",
+  style = "fade"
 })
 
 ------------------
