@@ -1,12 +1,12 @@
---Window control
+-- Window control --
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind("SUPER + BackSpace", hl.dsp.window.close())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen_state({
-    internal = 2,
-    client   = 0,
-    action   = "toggle"
+  internal = 2,
+  client   = 0,
+  action   = "toggle"
 }))
 hl.bind("SUPER + H", hl.dsp.window.float())
 hl.bind("SUPER + P", hl.dsp.window.pseudo())
@@ -16,7 +16,7 @@ hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 hl.bind("SUPER + I", hl.dsp.focus({ direction = "up" }))
 hl.bind("SUPER + K", hl.dsp.focus({ direction = "down" }))
 
---Shortcuts
+-- Shortcuts --
 
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + U", hl.dsp.exec_cmd("nemo"))
@@ -24,22 +24,22 @@ hl.bind("SUPER + O", hl.dsp.exec_cmd("dms ipc call spotlight toggle"))
 hl.bind("Print", hl.dsp.exec_cmd("grimblast --notify copy area"))
 hl.bind("SUPER + G", hl.dsp.exec_cmd("~/.config/hypr/scripts/gamemode.sh"))
 
---Workspaces
+-- Workspaces --
 
 for i = 1, 9 do
-    hl.bind("SUPER + SHIFT + " .. i, hl.dsp.focus({ workspace = i }))
+  hl.bind("SUPER + SHIFT + " .. i, hl.dsp.focus({ workspace = i }))
 end
 
 for i = 1, 9 do
-    hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
+  hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
 end
 
---Stuff I don't understand
+-- Magic Workspaces --
 
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind("SUPER + SHIFT" .. " + " .. "S", hl.dsp.window.move({ workspace = "special:magic" }))
 
---Zoom
+-- Zoom --
 
 hl.bind("SUPER + equal", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j| jq '.float* 1.1')"))
 hl.bind("SUPER + minus", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j| jq '(.float* 0.9)| if.< 1 then 1 else.end')"))
@@ -51,7 +51,7 @@ hl.bind("SUPER + SHIFT" .. " + " .. "minus", hl.dsp.exec_cmd("hyprctl -q keyword
 hl.bind("SUPER + SHIFT" .. " + " .. "KP_SUBTRACT", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 hl.bind("SUPER + SHIFT" .. " + " .. 0, hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 
---Multimedia
+-- Multimedia --
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true })
