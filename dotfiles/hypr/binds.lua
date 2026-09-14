@@ -27,7 +27,7 @@ hl.bind("SUPER + G", hl.dsp.exec_cmd("~/.config/hypr/scripts/gamemode.sh"))
 -- Workspaces --
 
 for i = 1, 9 do
-  hl.bind("SUPER + SHIFT + " .. i, hl.dsp.focus({ workspace = i }))
+  hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
 for i = 1, 9 do
