@@ -42,12 +42,6 @@ hl.config({
   xwayland = {
     force_zero_scaling = true,
   },
-  master = {
-    new_status = "master",
-  },
-  dwindle = {
-    preserve_split = true,
-  },
 })
 
 hl.config({
@@ -56,12 +50,6 @@ hl.config({
     rounding_power = 2,
     active_opacity = 1,
     inactive_opacity = 0.95,
-    shadow = {
-      enabled = true,
-      range = 4,
-      render_power = 3,
-      color = "rgba(1a1a1aee)",
-    },
   },
 })
 
