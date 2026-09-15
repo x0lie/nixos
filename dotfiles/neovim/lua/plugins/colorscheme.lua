@@ -4,6 +4,7 @@ return {
   priority = 1000, -- load before other plugins so highlight groups exist
   opts = {
     flavour = "mocha",
+    transparent_background = true,
     integrations = {
       cmp = false,
       blink_cmp = true,
