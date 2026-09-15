@@ -32,6 +32,7 @@ in
             self.homeModules.plasma
             self.homeModules.gaming
             self.homeModules.brave
+            self.homeModules.neovim
             inputs.nix-index-database.homeModules.default
           ];
         };

@@ -25,7 +25,6 @@ in
     kubecolor
     kubectl
     nemo
-    neovim
     nerd-fonts.jetbrains-mono
     nixd
     nixfmt

@@ -26,6 +26,7 @@ in
             self.homeModules.plasma
             self.homeModules.brightness
             self.homeModules.brave
+            self.homeModules.neovim
             inputs.nix-index-database.homeModules.default
           ];
         };
