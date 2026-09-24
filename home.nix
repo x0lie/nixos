@@ -1,8 +1,4 @@
-{ config, pkgs, ... }:
-
-let
-  configDir = "/home/x0lie/Projects/nixos";
-in
+{ config, pkgs, configDir, ... }:
 
 {
   home.username = "x0lie";

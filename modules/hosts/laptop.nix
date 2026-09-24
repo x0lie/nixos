@@ -1,6 +1,7 @@
 { inputs, self, ... }:
 let
   system = "x86_64-linux";
+  configDir = "/home/x0lie/Projects/nixos";
 in
 {
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
@@ -19,6 +20,7 @@ in
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.backupFileExtension = "backup";
+        home-manager.extraSpecialArgs = { inherit configDir; };
         home-manager.users.x0lie = {
           imports = [
             ../../home.nix

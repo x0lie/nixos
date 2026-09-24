@@ -33,10 +33,7 @@
     };
 
   flake.homeModules.hyprland =
-    { config, ... }:
-    let
-      configDir = "/home/x0lie/Projects/nixos";
-    in
+    { config, configDir, ... }:
     {
       imports = [ inputs.dms.homeModules.dank-material-shell ];
 

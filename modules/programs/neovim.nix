@@ -1,10 +1,7 @@
 { ... }:
 {
   flake.homeModules.neovim =
-    { config, pkgs, ... }:
-    let
-      configDir = "/home/x0lie/Projects/nixos";
-    in
+    { config, pkgs, configDir, ... }:
     {
       home.sessionVariables.EDITOR = "nvim";
 
