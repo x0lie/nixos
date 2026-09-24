@@ -154,6 +154,7 @@
     pulse.enable = true;
   };
 
+  programs.ssh.startAgent = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
   programs.mtr.enable = true;
