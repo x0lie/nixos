@@ -8,13 +8,13 @@ hl.bind("SUPER + F", hl.dsp.window.fullscreen_state({
   client   = 0,
   action   = "toggle"
 }))
-hl.bind("SUPER + H", hl.dsp.window.float())
+hl.bind("SUPER + I", hl.dsp.window.float())
 hl.bind("SUPER + P", hl.dsp.window.pseudo())
 
-hl.bind("SUPER + J", hl.dsp.focus({ direction = "left" }))
+hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
-hl.bind("SUPER + I", hl.dsp.focus({ direction = "up" }))
-hl.bind("SUPER + K", hl.dsp.focus({ direction = "down" }))
+hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
+hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
 
 -- Shortcuts --
 
