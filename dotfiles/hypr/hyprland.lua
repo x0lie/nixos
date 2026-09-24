@@ -96,10 +96,72 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name = "gamescope-content",
+  match = { class = "gamescope" },
+  content = "game",
+})
+
+hl.window_rule({
+  match = { content = "game" },
+  opacity = 1,
+})
+
+hl.window_rule({
   name = "bitwarden-float",
   match = { class = "brave-nngceckbapebfimnlniiiahkandclblb-Default" },
   float = true
 })
+
+--------------------
+-- GAME WORKSPACE --
+--------------------
+
+-- Numeric id so the workspace keeps its identity when renamed.
+local GAME_WS = 10
+local GAME_WS_IDLE_NAME = "game"
+
+hl.workspace_rule({
+  workspace    = tostring(GAME_WS),
+  default_name = GAME_WS_IDLE_NAME,
+  monitor      = "desc:Samsung Electric Company LC27G7xT H4ZT400384",
+  gaps_in = 0, gaps_out = 0, no_border = true, no_rounding = true,
+})
+
+hl.window_rule({
+  name      = "games-workspace",
+  match     = { content = "game" },
+  workspace = GAME_WS,
+})
+
+local function rename(name)
+  hl.dispatch(hl.dsp.workspace.rename({ workspace = GAME_WS, name = name }))
+end
+
+-- window.title also fires pre-map, where the workspace is still nil.
+local function on_game_ws(w)
+  local ws = w and w.workspace
+  return ws ~= nil and ws.id == GAME_WS
+end
+
+-- Show the running game's title as the workspace name.
+for _, event in ipairs({ "window.open", "window.title" }) do
+  hl.on(event, function(w)
+    if on_game_ws(w) and w.title ~= "" then rename(w.title) end
+  end)
+end
+
+-- On quit, drop back to the monitor's last workspace and let this one vanish.
+hl.on("window.close", function(w)
+  if not on_game_ws(w) then return end
+  local ws = w.workspace
+  if ws.windows > 1 then return end
+  rename(GAME_WS_IDLE_NAME)
+  -- Only when focused here, so a background quit cannot steal focus.
+  local focused = hl.get_active_workspace()
+  if not focused or focused.id ~= GAME_WS then return end
+  local last = hl.get_last_workspace(ws.monitor)
+  if last then hl.dispatch(hl.dsp.focus({ workspace = last.id })) end
+end)
 
 -------------
 -- MODULES --

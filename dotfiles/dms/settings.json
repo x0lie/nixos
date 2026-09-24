@@ -1,6 +1,6 @@
 {
   "currentThemeName": "custom",
-  "currentThemeCategory": "custom",
+  "currentThemeCategory": "registry",
   "customThemeFile": "/home/x0lie/.config/DankMaterialShell/themes/catppuccin/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
@@ -16,6 +16,8 @@
   "clockFormat": "12h",
   "useFahrenheit": true,
   "controlCenterShowMicPercent": true,
+  "showWorkspaceName": true,
+  "workspaceFollowFocus": true,
   "appIdSubstitutions": [],
   "networkPreference": "ethernet",
   "cursorSettings": {
@@ -36,6 +38,7 @@
   },
   "soundNewNotification": false,
   "soundVolumeChanged": false,
+  "batteryChargeLimit": 80,
   "dockLauncherEnabled": true,
   "dockLauncherLogoMode": "compositor",
   "osdPowerProfileEnabled": true,
@@ -157,5 +160,5 @@
       "trigger": "qrg"
     }
   },
-  "configVersion": 17
+  "configVersion": 18
 }
