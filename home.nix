@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
     adw-gtk3
+    awscli2
     claude-code
     direnv
     dnsutils
