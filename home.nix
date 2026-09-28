@@ -30,6 +30,7 @@
     spotify
     talosctl
     tcpdump
+    terraform
     tree
     vesktop
     vlc
