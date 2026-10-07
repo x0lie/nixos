@@ -60,6 +60,15 @@
 
   boot.kernelParams = [ "preempt=full" ];
 
+  boot.kernel.sysctl."vm.swappiness" = 100;
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 8192;
+      priority = 10;
+    }
+  ];
+
   services.scx = {
     enable = true;
     # scheduler = "scx_lavd";
@@ -101,6 +110,12 @@
   time.timeZone = "America/New_York";
 
   environment.sessionVariables = {
+  };
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+    priority = 100;
   };
 
   users.groups.nfsgroup = {
