@@ -32,6 +32,7 @@
   boot.loader.limine = {
     enable = true;
     maxGenerations = 8;
+    efiInstallAsRemovable = true;
 
     style = {
       # Catppuccin Mocha
