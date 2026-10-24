@@ -26,6 +26,7 @@
     nixd
     nixfmt
     openbao
+    plex-desktop
     qtengine
     spotify
     talosctl
