@@ -23,6 +23,16 @@
           shortcut = "github";
           url = "https://github.com/search?q={searchTerms}&type=repositories";
         }
+        {
+          name = "Amazon";
+          shortcut = "amazon";
+          url = "https://www.amazon.com/s?k={searchTerms}";
+        }
+        {
+          name = "Ebay";
+          shortcut = "ebay";
+          url = "https://www.ebay.com/sch/i.html?_nkw={searchTerms}";
+        }
       ];
     };
   };
