@@ -42,6 +42,7 @@
         systemd.enable = false;
         enableSystemMonitoring = true;
         enableDynamicTheming = true;
+        enableCalendarEvents = false; # khal 0.14.1 man output broken in nixpkgs (2026-10)
       };
 
       home.file.".config/hypr".source =
