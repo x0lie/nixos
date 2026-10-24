@@ -8,8 +8,13 @@
     "nix-command"
     "flakes"
   ];
-  nix.gc.automatic = true;
-  nix.gc.dates = "weekly";
+  nix.settings.auto-optimise-store = true;
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.dates = "weekly";
+    clean.extraArgs = "--keep 8 --keep-since 5d";
+  };
 
   nixpkgs.config.allowUnfree = true;
 
