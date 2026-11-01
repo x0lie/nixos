@@ -9,11 +9,6 @@
           pin_cores = "yes";
           park_cores = "yes";
         };
-        gpu = {
-          apply_gpu_optimisations = "accept-responsibility";
-          dpu_device = 0;
-          nv_powermizer_mode = 1;
-        };
       };
     };
   };
