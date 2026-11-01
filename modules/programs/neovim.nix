@@ -9,11 +9,15 @@
         fd
         gcc
         gnumake
+        gofumpt
+        gopls
+        gotools
         lazygit
         lua-language-server
         neovim
         ripgrep
         stylua
+        tree-sitter
         wl-clipboard
       ];
 

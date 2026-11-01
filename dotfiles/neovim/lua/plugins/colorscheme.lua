@@ -12,6 +12,7 @@ return {
       telescope = true,
       neotree = true,
       which_key = true,
+      aerial = true,
       treesitter = true,
     },
     styles = {

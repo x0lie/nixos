@@ -12,3 +12,7 @@ insert_final_newline = true
 [*.{bash,py,sh}]
 indent_style = space
 indent_size = 4
+
+# gofmt mandates tabs
+[{*.go,go.mod,go.work}]
+indent_style = tab
