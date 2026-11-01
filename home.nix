@@ -13,8 +13,10 @@
     dnsutils
     efibootmgr
     fastfetch
+    fluxcd
     gh
     git
+    go-task
     grimblast
     hyprpicker
     jq
@@ -28,7 +30,9 @@
     openbao
     plex-desktop
     qtengine
+    sops
     spotify
+    talhelper
     talosctl
     tcpdump
     terraform
