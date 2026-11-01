@@ -184,4 +184,6 @@
   programs.firefox.enable = true;
   programs.fish.enable = true;
   programs.mtr.enable = true;
+
+  programs.kdeconnect.enable = true;
 }
