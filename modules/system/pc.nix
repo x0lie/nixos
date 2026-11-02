@@ -1,0 +1,157 @@
+{ ... }:
+{
+  flake.nixosModules.pc =
+    { config, pkgs, ... }:
+    {
+      nixpkgs.config.allowUnfree = true;
+
+      #################
+      # Boot / Kernel #
+      #################
+
+      boot.kernelPackages = pkgs.linuxPackages_7_3;
+      boot.kernelModules = [
+        "ntsync"
+        "tcp_bbr"
+      ];
+
+      boot.loader.efi.canTouchEfiVariables = true;
+      boot.loader.timeout = 2;
+
+      boot.loader.limine = {
+        enable = true;
+        maxGenerations = 8;
+        efiInstallAsRemovable = true;
+
+        style = {
+          # Catppuccin Mocha
+          wallpapers = [ ../../assets/limine-wallpaper.png ];
+          wallpaperStyle = "stretched";
+          backdrop = "1E1E2E"; # base
+
+          interface = {
+            branding = config.networking.hostName;
+            brandingColor = "CBA6F7"; # mauve
+            helpColor = "A6E3A1"; # green
+            helpColorBright = "94E2D5"; # teal
+          };
+
+          graphicalTerminal = {
+            foreground = "CDD6F4"; # text
+            brightForeground = "CDD6F4"; # text
+            palette = "45475A;F38BA8;A6E3A1;F9E2AF;89B4FA;F5C2E7;94E2D5;BAC2DE";
+            brightPalette = "585B70;F38BA8;A6E3A1;F9E2AF;89B4FA;F5C2E7;94E2D5;A6ADC8";
+          };
+        };
+      };
+
+      boot.kernel.sysctl."net.core.default_qdisc" = "fq";
+      boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
+
+      boot.kernelParams = [ "preempt=full" ];
+
+      boot.kernel.sysctl."vm.swappiness" = 100;
+      swapDevices = [
+        {
+          device = "/swapfile";
+          size = 8192;
+          priority = 10;
+        }
+      ];
+
+      services.scx = {
+        enable = true;
+        # scheduler = "scx_lavd";
+        # extraArgs = [ "--performance" ];
+        scheduler = "scx_bpfland";
+        extraArgs = [
+          "-m"
+          "performance"
+        ];
+      };
+
+      #################
+      #   Hardware    #
+      #################
+
+      hardware.graphics.enable = true;
+      virtualisation.docker.enable = true;
+
+      #################
+      #  Networking   #
+      #################
+
+      networking.firewall.checkReversePath = "loose";
+      networking.networkmanager.enable = true;
+      services.resolved.enable = true; # [local caching] necessary for full-speed Steam downloads
+
+      # Open ports in the firewall.
+      # networking.firewall.allowedTCPPorts = [ ... ];
+      # networking.firewall.allowedUDPPorts = [ ... ];
+
+      # Configure network proxy if necessary
+      # networking.proxy.default = "http://user:password@proxy:port/";
+      # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+      #################
+      #    Config     #
+      #################
+
+      environment.sessionVariables = {
+      };
+
+      zramSwap = {
+        enable = true;
+        memoryPercent = 50;
+        priority = 100;
+      };
+
+      users.groups.nfsgroup = {
+        gid = 1001;
+      };
+
+      users.users.x0lie.extraGroups = [
+        "networkmanager"
+        "input"
+        "docker"
+        "nfsgroup"
+      ];
+
+      fileSystems."/mnt/nfs/media" = {
+        device = "192.168.1.2:/mnt/OlsonNAS/nfs/media";
+        fsType = "nfs";
+        options = [
+          "x-systemd.automount"
+          "noauto"
+          "x-systemd.idle-timeout=600"
+          "_netdev"
+        ];
+      };
+
+      #################
+      #   Services    #
+      #################
+
+      services.accounts-daemon.enable = true;
+      services.power-profiles-daemon.enable = true;
+      services.upower.enable = true;
+      security.polkit = {
+        enable = true;
+        enablePkexecWrapper = true;
+      };
+      services.printing.enable = true;
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
+      services.pipewire = {
+        enable = true;
+        pulse.enable = true;
+      };
+
+      programs.firefox.enable = true;
+
+      programs.kdeconnect.enable = true;
+    };
+}

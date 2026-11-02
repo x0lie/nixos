@@ -8,13 +8,17 @@ in
     inherit system;
     modules = [
       ../../hardware-configurations/main.nix
-      ../../configuration.nix
-      { boot.loader.limine.extraEntries = ''
+      {
+        # Reflects original install; do not change:
+        system.stateVersion = "26.05";
+        networking.hostName = "main";
+        boot.loader.limine.extraEntries = ''
           /Windows
               protocol: efi
               path: guid(8f4ac44a-07fa-4b73-8e1f-649307fe4d1a):/EFI/Microsoft/Boot/bootmgfw.efi
-        ''; }
-      { networking.hostName = "main"; }
+        '';
+      }
+      self.nixosModules.pc
       self.nixosModules.base
       self.nixosModules.users
       self.nixosModules.ssh-server

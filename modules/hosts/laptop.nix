@@ -8,8 +8,12 @@ in
     inherit system;
     modules = [
       ../../hardware-configurations/laptop.nix
-      ../../configuration.nix
-      { networking.hostName = "laptop"; }
+      {
+        # Reflects original install; do not change:
+        system.stateVersion = "26.05";
+        networking.hostName = "laptop";
+      }
+      self.nixosModules.pc
       self.nixosModules.base
       self.nixosModules.users
       self.nixosModules.ssh-client
