@@ -155,7 +155,6 @@
     pulse.enable = true;
   };
 
-  programs.ssh.startAgent = true;
   programs.firefox.enable = true;
 
   programs.kdeconnect.enable = true;

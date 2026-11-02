@@ -35,6 +35,7 @@ in
         ];
         publicKey = host.hostKey;
       }) (lib.filterAttrs (_: host: host ? hostKey) hosts);
+      programs.ssh.startAgent = true;
     };
 
   flake.homeModules.ssh =
