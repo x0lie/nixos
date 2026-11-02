@@ -28,25 +28,24 @@ in
   flake.nixosModules.ssh-client =
     { lib, ... }:
     {
-      programs.ssh.knownHosts = lib.mapAttrs (name: host: {
-        hostNames = [
-          name
-          host.address
-        ];
-        publicKey = host.hostKey;
-      }) (lib.filterAttrs (_: host: host ? hostKey) hosts);
-      programs.ssh.startAgent = true;
-    };
-
-  flake.homeModules.ssh =
-    { lib, ... }:
-    {
       programs.ssh = {
-        enable = true;
-        enableDefaultConfig = false;
-        settings = lib.mapAttrs (_: host: { HostName = host.address; }) hosts // {
-          "*".AddKeysToAgent = "yes";
-        };
+        startAgent = true;
+        knownHosts = lib.mapAttrs (name: host: {
+          hostNames = [
+            name
+            host.address
+          ];
+          publicKey = host.hostKey;
+        }) (lib.filterAttrs (_: host: host ? hostKey) hosts);
+        extraConfig = ''
+          AddKeysToAgent yes
+        ''
+        + lib.concatStrings (
+          lib.mapAttrsToList (name: host: ''
+            Host ${name}
+              HostName ${host.address}
+          '') hosts
+        );
       };
     };
 }

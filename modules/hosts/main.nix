@@ -33,7 +33,6 @@ in
         home-manager.users.x0lie = {
           imports = [
             ../../home.nix
-            self.homeModules.ssh
             self.homeModules.hyprland
             self.homeModules.plasma
             self.homeModules.gaming
