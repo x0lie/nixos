@@ -15,6 +15,7 @@
         lazygit
         lua-language-server
         neovim
+        prettier
         ripgrep
         stylua
         tree-sitter
