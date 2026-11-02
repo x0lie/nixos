@@ -10,6 +10,8 @@ in
       ../../hardware-configurations/laptop.nix
       ../../configuration.nix
       { networking.hostName = "laptop"; }
+      self.nixosModules.users
+      self.nixosModules.ssh-client
       self.nixosModules.brightness
       self.nixosModules.hyprland
       self.nixosModules.plasma
@@ -24,6 +26,7 @@ in
         home-manager.users.x0lie = {
           imports = [
             ../../home.nix
+            self.homeModules.ssh
             self.homeModules.hyprland
             self.homeModules.plasma
             self.homeModules.brightness

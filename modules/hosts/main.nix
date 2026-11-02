@@ -15,6 +15,9 @@ in
               path: guid(8f4ac44a-07fa-4b73-8e1f-649307fe4d1a):/EFI/Microsoft/Boot/bootmgfw.efi
         ''; }
       { networking.hostName = "main"; }
+      self.nixosModules.users
+      self.nixosModules.ssh-server
+      self.nixosModules.ssh-client
       self.nixosModules.hyprland
       self.nixosModules.plasma
       self.nixosModules.gaming
@@ -29,6 +32,7 @@ in
         home-manager.users.x0lie = {
           imports = [
             ../../home.nix
+            self.homeModules.ssh
             self.homeModules.hyprland
             self.homeModules.plasma
             self.homeModules.gaming

@@ -128,17 +128,12 @@
     gid = 1001;
   };
 
-  users.users.x0lie = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "input"
-      "docker"
-      "nfsgroup"
-    ];
-    shell = pkgs.fish;
-  };
+  users.users.x0lie.extraGroups = [
+    "networkmanager"
+    "input"
+    "docker"
+    "nfsgroup"
+  ];
 
   fileSystems."/mnt/nfs/media" = {
     device = "192.168.1.2:/mnt/OlsonNAS/nfs/media";
@@ -155,13 +150,6 @@
   #   Services    #
   #################
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-    };
-  };
   services.accounts-daemon.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
@@ -182,7 +170,6 @@
 
   programs.ssh.startAgent = true;
   programs.firefox.enable = true;
-  programs.fish.enable = true;
   programs.mtr.enable = true;
 
   programs.kdeconnect.enable = true;
