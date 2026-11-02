@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 
@@ -34,7 +35,7 @@
       backdrop = "1E1E2E"; # base
 
       interface = {
-        branding = "main";
+        branding = config.networking.hostName;
         brandingColor = "CBA6F7"; # mauve
         helpColor = "A6E3A1"; # green
         helpColorBright = "94E2D5"; # teal
