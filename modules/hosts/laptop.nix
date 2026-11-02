@@ -10,6 +10,7 @@ in
       ../../hardware-configurations/laptop.nix
       ../../configuration.nix
       { networking.hostName = "laptop"; }
+      self.nixosModules.base
       self.nixosModules.users
       self.nixosModules.ssh-client
       self.nixosModules.brightness

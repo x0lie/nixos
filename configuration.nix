@@ -4,18 +4,6 @@
 }:
 
 {
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.auto-optimise-store = true;
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.dates = "weekly";
-    clean.extraArgs = "--keep 8 --keep-since 5d";
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   # Set once for bookkeeping, do not change this (reflects the original install)
@@ -113,8 +101,6 @@
   #    Config     #
   #################
 
-  time.timeZone = "America/New_York";
-
   environment.sessionVariables = {
   };
 
@@ -170,7 +156,6 @@
 
   programs.ssh.startAgent = true;
   programs.firefox.enable = true;
-  programs.mtr.enable = true;
 
   programs.kdeconnect.enable = true;
 }

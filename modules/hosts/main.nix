@@ -15,6 +15,7 @@ in
               path: guid(8f4ac44a-07fa-4b73-8e1f-649307fe4d1a):/EFI/Microsoft/Boot/bootmgfw.efi
         ''; }
       { networking.hostName = "main"; }
+      self.nixosModules.base
       self.nixosModules.users
       self.nixosModules.ssh-server
       self.nixosModules.ssh-client
