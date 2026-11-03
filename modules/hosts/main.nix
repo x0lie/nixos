@@ -23,6 +23,7 @@ in
       self.nixosModules.users
       self.nixosModules.ssh-server
       self.nixosModules.ssh-client
+      self.nixosModules.nfs-client
       self.nixosModules.hyprland
       self.nixosModules.plasma
       self.nixosModules.gaming

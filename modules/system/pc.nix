@@ -106,27 +106,11 @@
         priority = 100;
       };
 
-      users.groups.nfsgroup = {
-        gid = 1001;
-      };
-
       users.users.x0lie.extraGroups = [
         "networkmanager"
         "input"
         "docker"
-        "nfsgroup"
       ];
-
-      fileSystems."/mnt/nfs/media" = {
-        device = "192.168.1.2:/mnt/OlsonNAS/nfs/media";
-        fsType = "nfs";
-        options = [
-          "x-systemd.automount"
-          "noauto"
-          "x-systemd.idle-timeout=600"
-          "_netdev"
-        ];
-      };
 
       #################
       #   Services    #
