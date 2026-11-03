@@ -1,6 +1,5 @@
 { ... }:
 let
-  nasAddress = "192.168.1.2";
   nfsgroup = 1001;
 in
 {
@@ -9,7 +8,7 @@ in
     users.users.x0lie.extraGroups = [ "nfsgroup" ];
 
     fileSystems."/mnt/nfs/media" = {
-      device = "${nasAddress}:/mnt/OlsonNAS/nfs/media";
+      device = "nas:/mnt/OlsonNAS/nfs/media";
       fsType = "nfs";
       options = [
         "x-systemd.automount"

@@ -3,11 +3,6 @@ let
   adminKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBMpSVk2KurNXaKQG/qdV+I3wp+yGg9vOUgdsZboGGkD x0lie@main"
   ];
-
-  hosts = {
-    main.address = "192.168.1.100";
-    nas.address = "192.168.1.2";
-  };
 in
 {
   flake.nixosModules.ssh-server =
@@ -26,26 +21,12 @@ in
     };
 
   flake.nixosModules.ssh-client =
-    { lib, ... }:
     {
       programs.ssh = {
         startAgent = true;
-        knownHosts = lib.mapAttrs (name: host: {
-          hostNames = [
-            name
-            host.address
-          ];
-          publicKey = host.hostKey;
-        }) (lib.filterAttrs (_: host: host ? hostKey) hosts);
         extraConfig = ''
           AddKeysToAgent yes
-        ''
-        + lib.concatStrings (
-          lib.mapAttrsToList (name: host: ''
-            Host ${name}
-              HostName ${host.address}
-          '') hosts
-        );
+        '';
       };
     };
 }

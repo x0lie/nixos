@@ -18,6 +18,7 @@ in
       self.nixosModules.users
       self.nixosModules.ssh-client
       self.nixosModules.nfs-client
+      self.nixosModules.hosts
       self.nixosModules.brightness
       self.nixosModules.hyprland
       self.nixosModules.plasma
