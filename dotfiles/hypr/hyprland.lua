@@ -38,6 +38,7 @@ hl.config({
   },
   render = {
     direct_scanout = 2,
+    cm_auto_hdr = 0,
   },
   xwayland = {
     force_zero_scaling = true,
