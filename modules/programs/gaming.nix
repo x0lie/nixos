@@ -18,9 +18,12 @@
     {
       home.packages = with pkgs; [
         gamescope
+        lutris
         mangohud
         prismlauncher
         protonplus
+        wineWow64Packages.staging
+        winetricks
         xrandr
       ];
 
