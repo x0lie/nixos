@@ -17,6 +17,16 @@ in
               protocol: efi
               path: guid(8f4ac44a-07fa-4b73-8e1f-649307fe4d1a):/EFI/Microsoft/Boot/bootmgfw.efi
         '';
+        # 2x4TB raid0 btrfs
+        fileSystems."/mnt/hdd" = {
+          device = "/dev/disk/by-label/hdd";
+          fsType = "btrfs";
+          options = [
+            "compress=zstd"
+            "noatime"
+            "nofail"
+          ];
+        };
       }
       self.nixosModules.pc
       self.nixosModules.base
