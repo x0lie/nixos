@@ -28,6 +28,7 @@
     nixd
     nixfmt
     openbao
+    pinta
     plex-desktop
     qtengine
     sops
