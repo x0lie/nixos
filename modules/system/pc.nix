@@ -3,17 +3,12 @@
   flake.nixosModules.pc =
     { config, pkgs, ... }:
     {
-      nixpkgs.config.allowUnfree = true;
-
       #################
       # Boot / Kernel #
       #################
 
       boot.kernelPackages = pkgs.linuxPackages_7_3;
-      boot.kernelModules = [
-        "ntsync"
-        "tcp_bbr"
-      ];
+      boot.kernelModules = [ "ntsync" ];
 
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.timeout = 2;
@@ -44,9 +39,6 @@
           };
         };
       };
-
-      boot.kernel.sysctl."net.core.default_qdisc" = "fq";
-      boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
 
       boot.kernelParams = [ "preempt=full" ];
 
@@ -82,7 +74,6 @@
 
       networking.firewall.checkReversePath = "loose";
       networking.networkmanager.enable = true;
-      services.resolved.enable = true; # [local caching] necessary for full-speed Steam downloads
 
       # Open ports in the firewall.
       # networking.firewall.allowedTCPPorts = [ ... ];

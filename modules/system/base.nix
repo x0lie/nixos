@@ -9,7 +9,15 @@
       ];
       nix.settings.auto-optimise-store = true;
 
+      nixpkgs.config.allowUnfree = true;
+
       time.timeZone = "America/New_York";
+
+      boot.kernelModules = [ "tcp_bbr" ];
+      boot.kernel.sysctl."net.core.default_qdisc" = "fq";
+      boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
+
+      services.resolved.enable = true;
 
       programs.nh = {
         enable = true;
