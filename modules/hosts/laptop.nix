@@ -1,11 +1,7 @@
 { inputs, self, ... }:
-let
-  system = "x86_64-linux";
-  configDir = "/home/x0lie/Projects/nixos";
-in
 {
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
-    inherit system;
+    system = "x86_64-linux";
     modules = [
       ../../hardware-configurations/laptop.nix
       {
@@ -24,25 +20,17 @@ in
       self.nixosModules.hyprland
       self.nixosModules.plasma
       self.nixosModules.brave
-      inputs.home-manager.nixosModules.home-manager
+      self.nixosModules.home-manager
       {
-        environment.systemPackages = [ inputs.home-manager.packages.${system}.home-manager ];
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "backup";
-        home-manager.extraSpecialArgs = { inherit configDir; };
-        home-manager.users.x0lie = {
-          home.stateVersion = "26.05";
-          imports = [
-            self.homeModules.cli
-            self.homeModules.desktop
-            self.homeModules.hyprland
-            self.homeModules.plasma
-            self.homeModules.brightness
-            self.homeModules.brave
-            self.homeModules.neovim
-          ];
-        };
+        home-manager.users.x0lie.imports = [
+          self.homeModules.cli
+          self.homeModules.desktop
+          self.homeModules.hyprland
+          self.homeModules.plasma
+          self.homeModules.brightness
+          self.homeModules.brave
+          self.homeModules.neovim
+        ];
       }
     ];
   };
