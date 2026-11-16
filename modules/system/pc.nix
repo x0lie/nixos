@@ -75,7 +75,6 @@
       #################
 
       hardware.graphics.enable = true;
-      virtualisation.docker.enable = true;
 
       #################
       #  Networking   #
@@ -109,7 +108,6 @@
       users.users.x0lie.extraGroups = [
         "networkmanager"
         "input"
-        "docker"
       ];
 
       #################

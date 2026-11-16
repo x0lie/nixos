@@ -16,6 +16,7 @@ in
       self.nixosModules.pc
       self.nixosModules.base
       self.nixosModules.users
+      self.nixosModules.docker
       self.nixosModules.ssh-client
       self.nixosModules.nfs-client
       self.nixosModules.hosts
