@@ -13,8 +13,7 @@ in
   };
 
   # Resolves host names into addresses; creates ip = [ name ] for each host
-  config.flake.nixosModules.hosts =
-    {
-      networking.hosts = lib.mapAttrs' (name: address: lib.nameValuePair address [ name ]) hosts;
-    };
+  config.flake.nixosModules.hosts = {
+    networking.hosts = lib.mapAttrs' (name: address: lib.nameValuePair address [ name ]) hosts;
+  };
 }

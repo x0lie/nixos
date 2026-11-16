@@ -45,8 +45,7 @@
         enableCalendarEvents = false; # khal 0.14.1 man output broken in nixpkgs (2026-10)
       };
 
-      home.file.".config/hypr".source =
-        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr";
+      home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/hypr";
       home.file.".config/DankMaterialShell/settings.json".source =
         config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/dms/settings.json";
     };

@@ -1,7 +1,12 @@
 { ... }:
 {
   flake.homeModules.neovim =
-    { config, pkgs, configDir, ... }:
+    {
+      config,
+      pkgs,
+      configDir,
+      ...
+    }:
     {
       home.sessionVariables.EDITOR = "nvim";
 

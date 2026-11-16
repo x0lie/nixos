@@ -21,13 +21,12 @@ in
       users.users.x0lie.openssh.authorizedKeys.keys = adminKeys;
     };
 
-  flake.nixosModules.ssh-client =
-    {
-      programs.ssh = {
-        startAgent = true;
-        extraConfig = ''
-          AddKeysToAgent yes
-        '';
-      };
+  flake.nixosModules.ssh-client = {
+    programs.ssh = {
+      startAgent = true;
+      extraConfig = ''
+        AddKeysToAgent yes
+      '';
     };
+  };
 }
