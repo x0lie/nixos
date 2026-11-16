@@ -20,6 +20,8 @@
         lazygit
         lua-language-server
         neovim
+        nixd
+        nixfmt
         prettier
         ripgrep
         stylua

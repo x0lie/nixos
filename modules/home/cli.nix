@@ -17,8 +17,6 @@
         gh
         git
         jq
-        nixd
-        nixfmt
         tcpdump
         tree
         wget
