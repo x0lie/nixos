@@ -47,14 +47,15 @@ in
         home-manager.backupFileExtension = "backup";
         home-manager.extraSpecialArgs = { inherit configDir; };
         home-manager.users.x0lie = {
+          home.stateVersion = "26.05";
           imports = [
-            ../../home.nix
+            self.homeModules.cli
+            self.homeModules.desktop
             self.homeModules.hyprland
             self.homeModules.plasma
             self.homeModules.gaming
             self.homeModules.brave
             self.homeModules.neovim
-            inputs.nix-index-database.homeModules.default
           ];
         };
       }
