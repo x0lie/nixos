@@ -91,9 +91,6 @@
         hyprcursor.enable = true;
       };
 
-      home.file."Pictures/Wallpapers".source =
-        config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/wallpapers";
-
       home.file.".config/kitty".source =
         config.lib.file.mkOutOfStoreSymlink "${configDir}/dotfiles/kitty";
 
