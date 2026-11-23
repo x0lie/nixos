@@ -42,7 +42,6 @@
         shellAliases = {
           k = "kubecolor";
           t = "talosctl";
-          windows = "sudo efibootmgr -n 0000 && sudo reboot";
           dbpt = "cd ~/Projects/pia-tun && docker buildx build --load -t x0lie/pia-tun:local . && cd ../testing && docker compose up -d --remove-orphans && docker logs pia-tun -f";
         };
       };

@@ -13,6 +13,8 @@
               protocol: efi
               path: guid(8f4ac44a-07fa-4b73-8e1f-649307fe4d1a):/EFI/Microsoft/Boot/bootmgfw.efi
         '';
+        home-manager.users.x0lie.programs.fish.shellAliases.windows =
+          "sudo efibootmgr -n 0000 && sudo reboot";
         # 2x4TB raid0 btrfs
         fileSystems."/mnt/hdd" = {
           device = "/dev/disk/by-label/hdd";
