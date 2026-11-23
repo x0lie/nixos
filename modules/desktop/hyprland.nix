@@ -12,7 +12,7 @@
         xwayland.enable = true;
       };
       environment.systemPackages = [ cursor.package ];
-      services.displayManager.dms-greeter = {
+      services.displayManager.dux-greeter = {
         enable = true;
         compositor.name = "hyprland";
         configHome = "/home/x0lie";
