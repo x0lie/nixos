@@ -15,6 +15,12 @@
         useUserPackages = true;
         backupFileExtension = "backup";
         extraSpecialArgs.configDir = "/home/x0lie/Projects/nixos";
+        # NixOS-only alias; standalone machines use `hms`
+        sharedModules = [
+          {
+            programs.fish.shellAliases.nrs = "sudo nixos-rebuild switch --flake ~/Projects/nixos";
+          }
+        ];
         users.x0lie.home.stateVersion = config.system.stateVersion;
       };
     };

@@ -30,7 +30,6 @@
         '';
         shellAliases = {
           ls = "ls -al --color";
-          nrs = "sudo nixos-rebuild switch --flake ~/Projects/nixos";
           d = "docker";
           dcud = "docker compose up -d";
           dcd = "docker compose down";
